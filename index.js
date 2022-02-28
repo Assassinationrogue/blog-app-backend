@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 const config = require("./config/database");
 const path = require("path");
 
-app.use(express.static(__dirname + "./dist/frontend"));
+app.use(express.static(__dirname + "/dist/frontend"));
 app.get("*", (req, res, next) => {
-  res.sendFile(path.join(__dirname + "./dist/frontend/index.html"));
+  res.sendFile(path.join(__dirname + "/dist/frontend/index.html"));
 });
 
 mongoose.Promise = global.Promise;
