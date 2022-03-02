@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 8080;
-const router = express.Router();
+const blogApp = require("./src/app");
 const mongoose = require("mongoose");
 const config = require("./config/database");
 const path = require("path");
@@ -20,9 +20,7 @@ mongoose.connect(config.uri, (err) => {
   }
 });
 
-router.get("/", (req, res) => {
-  res.send("Hello world");
-});
+app.use(blogApp);
 
 app.listen(port, () => {
   console.log("Listening on" + ` http://localhost:${port}`);
